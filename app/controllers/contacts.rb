@@ -1,12 +1,31 @@
+
+
 get '/contacts' do
   @contacts = Contact.all
 
   erb :"contacts/index"
 end
 
+post '/contacts' do
+  @contact = Contact.create!(params[:contact])
+  redirect '/contacts'
+end
+
 get '/contacts/new' do
   @contact = Contact.new()
   erb :"contacts/new"
+end
+
+get '/contacts/:id' do
+  @contact = Contact.find(params[:id])
+  @address = Address.new()
+  erb :"contacts/show"
+end
+
+get '/contacts/:id/addresses/new' do
+  @contact = Contact.find(params[:id])
+  @address = Address.new()
+  erb :"addresses/new"
 end
 
 get '/contacts/:id/edit' do
@@ -20,12 +39,13 @@ put '/contacts/:id' do
   redirect '/contacts'
 end
 
-post '/contacts' do
-  @contact = Contact.create!(params[:contact])
-  redirect '/contacts'
-end
 
 delete '/contacts/:id' do
   Contact.find(params[:id]).destroy
   redirect '/contacts'
+end
+
+get '/contacts/:id/show' do
+  @contact = Contact.find(params[:id])
+  erb :"contacts/show"
 end

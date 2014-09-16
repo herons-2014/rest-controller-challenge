@@ -3,7 +3,7 @@
   <% @contacts = Contact.all %>
   <% @contacts.each do |contact| %>
     <ul>
-      <li><a href="/contacts/<%=contact.id %>/edit"><%= contact.name %></a></li>
+      <li><a href="/contacts/<%=contact.id %>/show"><%= contact.name %></a></li>
       <li><%= contact.email %></li>
     </ul>
     <hr>
