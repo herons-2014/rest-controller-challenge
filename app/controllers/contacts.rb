@@ -22,11 +22,6 @@ get '/contacts/:id' do
   erb :"contacts/show"
 end
 
-get '/contacts/:id/addresses/new' do
-  @contact = Contact.find(params[:id])
-  @address = Address.new()
-  erb :"addresses/new"
-end
 
 get '/contacts/:id/edit' do
   @contact = Contact.find(params[:id])
