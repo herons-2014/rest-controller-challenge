@@ -26,7 +26,7 @@ get '/contacts/:id/addresses/:address_id/edit' do
 end
 
 put '/contacts/:id/addresses/:address_id' do
-  @contact = Contact.find(params[:id])
+  # @contact = Contact.find(params[:id])
   @address = Address.find(params[:address_id])
   @address.update_attributes(params[:address])
   # @address.update_attributes(contact: @contact)
