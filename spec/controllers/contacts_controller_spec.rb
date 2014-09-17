@@ -19,7 +19,7 @@ describe "Contacts controller" do
     expect(page).to have_content("Fred Person")
   end
 
-  it "edits contacts" do
+  it "edits contacts" do #################################
     visit "/contacts/#{@joe.id}/edit"
     fill_in "Name", with: "Not Joe"
     click_button "Save"
